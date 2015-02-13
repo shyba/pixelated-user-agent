@@ -382,8 +382,15 @@ class PixelatedMail(Mail):
 
     @property
     def bounced(self):
-        content_type =  self.hdoc.content["headers"].get("Content-Type", '')
-        return re.compile('delivery-status').search(content_type)
+        content_type = self.hdoc.content["headers"].get("Content-Type", '')
+        if re.compile('delivery-status').search(content_type):
+            for part in self.hdoc.content.get("part_map", []).values():
+                print part
+                if 'part_map' in part:
+                    for subpart in part['part_map'].values():
+                        if 'To' in subpart.get('headers', {}):
+                            return subpart['headers']['To']
+        return False
 
     def as_dict(self):
         dict_mail = {'header': {k.lower(): v for k, v in self.headers.items()},
