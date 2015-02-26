@@ -1,3 +1,8 @@
+/* sidenav bgcolor*/
+$secondary: darken(#2ba6cb, 10);
+
+$logo_color: white;
+
 $warning: #F7E8AF;
 $search-highlight: #FFEF29;
 
@@ -9,11 +14,10 @@ $success: #2DAB49;
 
 $contrast: #EEE;
 $top_pane: #EAEAEA;
-$secondary: #3E3A37;
 $primary_color: #EF4E2F;
 $action_buttons: #2ba6cb;
 
-$secondary_callout: #FF7902;
+$secondary_callout: #FF7902;  /*orange*/
 
 $will_be_encrypted: #41cd60;
 $wont_be_encrypted: #F6A40A;
